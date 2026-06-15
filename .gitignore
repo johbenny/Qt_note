@@ -1,0 +1,10 @@
+# VNote sync defaults — feel free to edit; this file is preserved on update.
+vx_notebook/vx_sync/
+*.vswp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# From SyncConfig::exclude_paths
+*.vswp
+vx_notebook/vx_sync/

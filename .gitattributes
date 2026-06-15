@@ -1,0 +1,9 @@
+# VNote sync defaults — feel free to edit; this file is preserved on update.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.mp4 binary

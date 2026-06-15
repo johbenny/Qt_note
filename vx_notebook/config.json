@@ -1,0 +1,14 @@
+{
+  "assetsFolder": "vx_assets",
+  "description": "",
+  "id": "52cc7ba3-92db-4ea3-b62a-6b51d6aaa898",
+  "ignored": [],
+  "metadata": {},
+  "name": "Qt_note",
+  "syncBackend": "git",
+  "syncEnabled": true,
+  "syncIntervalSeconds": 60,
+  "syncRemoteUrl": "https://github.com/johbenny/Qt_note.git",
+  "tags": [],
+  "tagsModifiedUtc": 0
+}
