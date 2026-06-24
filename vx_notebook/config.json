@@ -5,10 +5,10 @@
   "ignored": [],
   "metadata": {},
   "name": "Qt_note",
-  "syncBackend": "git",
-  "syncEnabled": true,
+  "syncBackend": "",
+  "syncEnabled": false,
   "syncIntervalSeconds": 60,
-  "syncRemoteUrl": "https://github.com/johbenny/Qt_note.git",
+  "syncRemoteUrl": "",
   "tags": [],
   "tagsModifiedUtc": 0
 }

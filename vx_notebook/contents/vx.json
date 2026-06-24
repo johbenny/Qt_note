@@ -24,11 +24,51 @@
       "modifiedUtc": 1781542106933,
       "name": "QWdigets.md",
       "tags": []
+    },
+    {
+      "createdUtc": 1781667430661,
+      "id": "386b10b2-e6d1-40ad-94db-6284be3edc79",
+      "metadata": {},
+      "modifiedUtc": 1781667430661,
+      "name": "Qt Core.md",
+      "tags": []
+    },
+    {
+      "createdUtc": 1781861790501,
+      "id": "0a95bd34-c491-4ca5-befd-1b44994822c5",
+      "metadata": {},
+      "modifiedUtc": 1781861790501,
+      "name": "Qt Event.md",
+      "tags": []
+    },
+    {
+      "createdUtc": 1781861798147,
+      "id": "b8b03794-b328-401f-bac8-b460d5deffc9",
+      "metadata": {},
+      "modifiedUtc": 1781861798147,
+      "name": "Qt MVC.md",
+      "tags": []
+    },
+    {
+      "createdUtc": 1781861817498,
+      "id": "4e15ea57-516c-4260-8011-1093c65417d6",
+      "metadata": {},
+      "modifiedUtc": 1781861817498,
+      "name": "Qt secen_graph.md",
+      "tags": []
+    },
+    {
+      "createdUtc": 1782273238005,
+      "id": "75034be6-4f1c-4983-ad33-bd4f13d21245",
+      "metadata": {},
+      "modifiedUtc": 1782273265786,
+      "name": "KDAB Introduction to Qt Widgets.md",
+      "tags": []
     }
   ],
   "folders": [],
   "id": "57821f35-064c-4bac-a088-c363d4ba4439",
   "metadata": {},
-  "modifiedUtc": 1781542106933,
+  "modifiedUtc": 1782273265786,
   "name": "."
 }
