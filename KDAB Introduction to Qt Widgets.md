@@ -31,16 +31,13 @@
 
 [KDToolBox](https://github.com/KDABLabs/KDToolBox)
 
-### part 03
-Qt helper
+### part 03 Qt helper
 
 shortcuts:
 - F1 -> help documentation
 - F2 -> go to defination
 
-### part 04
-
-QObject
+### part 04 QObject
 ![](vx_images/402162282638676.png =800x)
 
 
@@ -52,9 +49,7 @@ QObject
 ![](vx_images/251895801375510.png =800x)
 ![](vx_images/414383829082920.png =300x)
 
-### part 05
-
- **QWidget**
+### part 05 **QWidget**
  
 ![](vx_images/218283962285147.png =800x)
 
@@ -63,9 +58,7 @@ QObject
 Layout 布局管理器，不参控件生命周期管理；
 `widget->setLayout(layout); ` 布局管理器中的所有控件会被加入 widget 的子对象树中。
 
-### part 06
-
-**signals and slots**
+### part 06 **signals and slots**
 
 ![](vx_images/484975070088047.png =500x)
 
@@ -81,9 +74,7 @@ Layout 布局管理器，不参控件生命周期管理；
 
 
 
-### part 07
-
-**SIGNAL() / SLOT()  宏 (Qt4)**
+### part 07 **SIGNAL() / SLOT()  宏 (Qt4)**
 
 ![](vx_images/181969480691024.png =800x)
 
@@ -91,9 +82,7 @@ Layout 布局管理器，不参控件生命周期管理；
 - 其底层是基于字符串形式的函数签名，由 moc 在编译前生成，其功能绑定发生在运行时（根据函数签名字符串遍历）；
 - 没有类型检查
 
-### part 08
-
-**信号连接 Lambda 表达式 / 函数包装器 /  独立函数指针 `【无接收者】`**
+### part 08 **信号连接 Lambda 表达式 / 函数包装器 /  独立函数指针 `【无接收者】`**
 
 ![](vx_images/223031665717160.png =800x)
 
@@ -122,9 +111,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 对于无接收者的情况（使用lambda 、函数包装器、独立函数指针）
 
 
-### part 09
-
-**自定义信号、槽函数**
+### part 09 **自定义信号、槽函数**
 
 - 自定义槽函数
     ![](vx_images/590316934114091.png =500x)
@@ -144,7 +131,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 > 直接连接，槽函数都是在是在发送者所在线程执行的；多线程直接连接，存在竞态条件的风险。
 
 
-### part 10
+### part 10 signal
 
 
 `emit signal`  : ` emit` 宏实际上没有任何意义，只是方便阅读
@@ -156,9 +143,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 [GammaRay wiki](https://github.com/KDAB/GammaRay/wiki) 运行时手动修改 Qt 属性
 
-### part 12
-
-**Event System**
+### part 12 **Event System**
 
 [The Event System](https://doc.qt.io/qt-6/eventsandfilters.html)
 
@@ -168,9 +153,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 ![](vx_images/373893360188021.png =500x)
 
 
-### part 13 
-
-**Qt Designer**
+### part 13 & part 14 **Qt Designer**
 
 [Qt Widgets Designer Manual](https://doc.qt.io/qt-6/qtdesigner-manual.html)
 1. 创建带UI文件的项目
@@ -188,3 +171,293 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 窗口控件本体在构造函数内将绘制动作委托给 UI 类的 setupUi 方法
 ![](vx_images/143058645008789.png =500x)
+
+### part 15 **Layout in Qt Designer**
+
+
+
+- 直接将多选的控件设置 layout, 会默认新建一个隐式的 widget；应该直接为其父 widget 设置 layout ；
+
+- 已经布局的控件窗口，再拖动增加控件比较困难, 可以直接拖入对象列表
+    ![](vx_images/246445123945835.png =800x)
+    - spacer 、子控件的sizepolicy 配合使用，实现自定义布局
+    
+### part 16 **signals slots in Designer**
+
+- 图形界面，拖动连接信号槽
+![](vx_images/468673395628547.png)
+
+- 手动设置信号槽连接
+![](vx_images/572865075732039.png =800x)
+
+
+- 转到槽
+![](vx_images/234925365607498.png =800x)
+    - 选择信号
+    ![](vx_images/520722249891044.png =800x)
+    - 自动生成信号对应的槽函数
+    ![](vx_images/479744605404331.png =800x)
+    - 在对应窗口控件自动生成的 ui_ClassName.h 中， moc 会根据信号签名搜索形如 on_object_signal() 的槽函数并连接
+    ![](vx_images/210275287479370.png =800x)
+    > 问题在于，如果 .ui 文件中的控件对象名属性被修改，之前自动生的的槽函数的函数名不会被自动修改，导致编译错误（无法根据对象名属性找到正确的槽函数）
+    
+### part 17 **buddies and Tab order**
+
+[Widgets 焦点系统](https://doc.qt.io/qt-6/focus.html)
+
+- 设置 Buddies (专门用于 QLable 的焦点绑定，配合 Alt + 助记符)
+  - 当 Alt + 助记符 快捷键命中时，焦点会自动移动到 label 绑定的 buddie 上
+  - 图形界面拖动
+  ![](vx_images/496225654964167.png =800x)
+  - cpp代码手动设置
+   ```cpp
+    QLabel *nameLabel = new QLabel("&Name:");
+    QLineEdit *nameEdit = new QLineEdit;
+    nameLabel->setBuddy(nameEdit);
+    ```
+
+
+- Alt 快捷键
+    在对应控件的属性编辑器中，将 text 修改， 在想作为 Alt 键的字母前加 & ；
+    ![](vx_images/42196984348336.png =800x)
+
+    - Alt + 字母 快捷键字母会加下划线， 快捷键为 Alt + S
+    ![](vx_images/126465067197844.png =500x)
+    - 不仅首字母可以作为快捷键，此处 text= As &Regular Expression ， 快捷键为 Alt + R
+    ![](vx_images/377995478662958.png =800x)
+    
+- Tab order
+    - 图形 界面设置 Tab 顺序
+    ![](vx_images/110352561269942.png =800x) 
+    - 鼠标点击，自动排序
+    ![](vx_images/423640421752885.png =300x)
+
+
+### part 18 **custom widegt**
+  
+
+- [自定义 Designer 插件](https://www.youtube.com/watch?v=LGzNWFHUvpM&list=PL6CJYn40gN6iNg0nIYH4QLhYkfs5PslbA) (KDAB's palylist from youtube)
+
+- 窗口控件提升： 将 Designer 中的默认控件，替换为其他非默认的控件类
+    - 提升为的类，必须是被提升的默认控件类的子类
+    - 提升为的类，可以是自定义的类，可以是 Qt 框架内的类
+    
+[qtpdf-pdfviewer-example.html](https://doc.qt.io/qt-6/qtpdf-pdfviewer-example.html) (官方实例，将 ui 文件中的 QWidget 提升为 Qt 框架内的 QPdfView)
+
+*将被提升的默认窗口控件*
+![](vx_images/107718302513335.png =500x)
+*设置提升的目标类，此处使用 Qt 框架内的类，不需要 `全局包含`*
+![](vx_images/330428132257819.png =500x)
+*提升成功*
+![](vx_images/456105218433511.png =500x)
+
+
+> 提升为自定义类：
+    - 自定义类头文件需要用预先定义，必须是被提成控件的派生类
+    - 头文件需要全局包含
+    
+`静态用户界面，尽量使用 UI 文件`
+
+### part 20 **common widgets**
+
+![](vx_images/450225969858968.png =200x)
+
+
+- [QLabel](https://doc.qt.io/qt-6/qlabel.html)
+
+    ![](vx_images/42280631670565.png =700x)
+
+
+
+
+- [QLineEdit](https://doc.qt.io/qt-6/qlineedit.html) & [QTextEdit](https://doc.qt.io/qt-6/qtextedit.html)
+    ![](vx_images/58122659983207.png =700x)
+
+
+> QPlainTextEdit : 对比 QTextEdit  ，功能单一（仅读写），但刷新性能强，适合高速刷新文本的处理
+
+
+
+
+### part 21 **buttons **
+
+![](vx_images/336243277519596.png =200x)
+
+![](vx_images/175116581020272.png =800x)
+
+- [QButtonGroup](https://doc.qt.io/qt-6/qbuttongroup.html)
+    - 不可视控件组，区别于 QGroupBox 
+    - 专用于管理 button 的逻辑状态，既其选中状态 `setExclusive(true)` 设置其中的可选中按键为互斥（按键组默认互斥）
+    - 不管理其内的按钮的生命周期，区别于 QGroupBox；**不会**将其内的控件的父对象设置为其本身的父对象，区别于 layout
+    
+- QRadioButton 如果拥有同一个父对象，则只能选中一个，并且取消其他按钮的 toggle 状态（互斥）
+
+[qgroupbox.html](https://doc.qt.io/qt-6/qgroupbox.html)
+[qpushbutton.html](https://doc.qt.io/qt-6/qpushbutton.html)
+[qcheckbox.html](https://doc.qt.io/qt-6/qcheckbox.html)
+[qradiobutton.html](https://doc.qt.io/qt-6/qradiobutton.html)
+**value widgets**
+
+![](vx_images/569026916231570.png =200x)
+
+![](vx_images/316705133959766.png =700x)
+
+
+[qslider.html](https://doc.qt.io/qt-6/qslider.html)
+[qprogressbar.html](https://doc.qt.io/qt-6/qprogressbar.html)
+[qspinbox.html](https://doc.qt.io/qt-6/qspinbox.html)
+
+### part 22 **widgets organizer**
+![](vx_images/496715323002211.png =400x)
+
+![](vx_images/346216059913449.png =700x)
+
+
+[qgroupbox.html](https://doc.qt.io/qt-6/qgroupbox.html)
+[qtabwidget.html](https://doc.qt.io/qt-6/qtabwidget.html)
+[qtoolbox.html](https://doc.qt.io/qt-6/qtoolbox.html)
+[qscrollarea.html](https://doc.qt.io/qt-6/qscrollarea.html) 
+
+### part 23 **item widgets**
+
+![](vx_images/366945602725880.png =300x)
+![](vx_images/83732928665457.png =800x)
+
+### part 24  **[layout management](https://doc.qt.io/qt-6/layout.html)**
+
+- 放置和尺寸
+![](vx_images/175890750559853.png =700x)
+
+
+- 水平布局
+![](vx_images/450412659077943.png =700x)
+
+
+
+- 网格布局
+![](vx_images/37650860699793.png =700x)
+
+- 表格布局（两列布局）
+ ![](vx_images/241472937506637.png =200x)
+![](vx_images/543931716809642.png =700x)
+
+
+[Flow Layout Example](https://doc.qt.io/qt-6/qtwidgets-layouts-flowlayout-example.html) 响应式布局示例
+
+
+
+### part 25 **strecthing and spacing** 拉伸和填充
+
+![](vx_images/42035889378911.png =400x)
+
+![](vx_images/254097357025573.png =900x)
+
+
+- 间距 （spacing）： layouts 中相邻控件之间的距离，通过 [setSpacing(int) ](https://doc.qt.io/qt-6/qlayout.html#spacing-prop)设置（默认值因平台而异，通常为 6px）
+
+
+- 边距（margin)    ：  layout 内部布局中的控件，与 layout 边缘的空间（可以理解为内部控件与被设置 layout 的父窗口的边缘空间）
+    - [setContentsMargins(int left, int top, int right, int bottom)](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins-1)设置（默认值通常为 11px）。
+    - 作用：控制界面的“留白”，避免控件拥挤或边缘紧贴窗口，提升视觉舒适度。
+    
+- 拉伸因子 ：决定控件在布局中的“占比权重”，当<mark>窗口大小变化时</mark>，控件会按比例分配<mark>额外空间</mark>
+    - 对 QVBoxLayout/QHBoxLayout，通过 addWidget(widget, stretch) 为单个控件设置拉伸因子。
+    - 对 QGridLayout，通过 setRowStretch(row, stretch) 和 setColumnStretch(col, stretch) 为整行/整列设置拉伸因子。
+    - 例：在 QHBoxLayout 中，若两个按钮的拉伸因子分别为 1 和 2，则窗口宽度增加 30px 时，第一个按钮会增加 10px，第二个增加 20px。
+    - 内部控件可以设置自身的 stretch factor，但会被 layout 的 stretch factor 覆盖
+    
+![](vx_images/552074603869255.png =700x)
+
+
+- 尺寸策略 ：每个控件都有默认的尺寸策略（[QSizePolicy](https://doc.qt.io/qt-6/qsizepolicy.html#details)），决定了它在布局中的拉伸/收缩行为
+    - QSizePolicy::Fixed：尺寸固定，不随布局变化（如 setFixedSize 效果）。
+    - QSizePolicy::Minimum：最小尺寸为 sizeHint()，可放大但不小于此值。
+    - QSizePolicy::Maximum：最大尺寸为 sizeHint()，可缩小但不大于此值。
+    - QSizePolicy::Preferred：优先使用 sizeHint()，但可放大或缩小（默认策略）。
+    - QSizePolicy::Expanding：主动占据额外空间，适合填充布局的控件（如 QTextEdit）。
+   
+- [sizeHint](https://doc.qt.io/qt-6/qwidget.html#sizeHint-prop) : 控件的「推荐大小」，QLayout 在布局计算时，会优先参考这个值 [qtwidgets-layouts-flowlayout-example.html](https://doc.qt.io/qt-6/qtwidgets-layouts-flowlayout-example.html)
+
+
+>布局运行时，会根据上述多个属性结合使用，决定最终布局效果。
+
+### part 26 **Guidelines for Custom Widgets**
+
+![](vx_images/588624622463244.png =800x)
+
+![](vx_images/163303735955092.png =800x)
+
+![](vx_images/409997559675858.png =800x)
+
+![](vx_images/248746955444052.png =800x)
+
+![](vx_images/43874282962966.png =800x)
+
+![](vx_images/125808076114992.png =800x)
+
+- Qt 自定义 API，设计指南
+    - [Designing Qt-Style C++ APIs](https://doc.qt.io/archives/qq/qq13-apis.html)
+    - [api-design.pdf](./vx_assets/api-design.pdf)
+    
+### part 27 **Validating  Input**
+
+[Input Masks and Validators ](https://www.ics.com/blog/qts-approach-input-validation-masks-and-validators-explained)
+
+- Input Mask ：在用户输入时实时检查，错误格式无法输入
+![](vx_images/582265503751637.png =800x)
+![](vx_images/185175652399064.png =800x)
+![](vx_images/569486253313016.png =800x)
+
+[ex-inputMasks](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/text-processing/ex-inputMasks)
+
+- Validator ： 每次输入变化 / Enter / 失焦 都会被调用
+![](vx_images/417385929619249.png =800x)
+
+> 会根据返回的值，自动处理（自动更正，使用fixup）
+
+`实质上 mask 和 validator 并不会对用户输入数据进行处理，只是保证其格式的正确性`
+
+[MasksValidators](https://github.com/integratedcomputersolutions/blogs/tree/MasksValidators)
+
+
+
+**[QCompleter](https://doc.qt.io/qt-6/qcompleter.html#details) 补全器**
+
+[ex-completer](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/text-processing/ex-completer)
+
+[文本自动补全案例(Qt)](https://doc.qt.io/qt-6/qtwidgets-tools-customcompleter-example.html)
+
+### part 28 [Resource System](https://doc.qt.io/qt-6/resources.html)
+
+将图片、QML、翻译文件等任意二进制数据嵌入到可执行文件或动态库中，并通过虚拟路径 :/或 qrc:统一访问。
+
+
+
+[Qt Resource Collection File (.qrc)](https://doc.qt.io/qt-6/resources.html#qt-resource-collection-file-qrc)
+```xml
+<RCC>
+    <qresource prefix="/">
+        <file>images/copy.png</file>
+        <file>images/cut.png</file>
+        <file>images/new.png</file>
+        <file>images/open.png</file>
+        <file>images/paste.png</file>
+        <file>images/save.png</file>
+    </qresource>
+</RCC>
+```
+.qrc 仅记录资源文件的相对路径（相对于当前 .qrc 文件）； 可以使用 [Aliases](https://doc.qt.io/qt-6/resources.html#aliases) 设置资源文件的别名，省略相对路径；
+
+- rcc 预处理阶段，资源文件被压缩处理为 cpp unsigned char (uint_8)数组
+- 编译阶段，资源文件被编译为二进制文件，并链接到可执行文件
+- 运行阶段，根据 .qrc *前缀 + 相对路径* 加载二进制数据
+
+> 可以使用 GammaRay 在运行时检视资源文件
+![](vx_images/40092367391969.png =800x)
+
+相对于运行时使用系统文件系统加载资源文件，rcc 方式更具稳定性和速度优势（进程级的虚拟文件系统，<mark>其访问资源文件的api和方式与使用系统文件系统相同</mark>）。
+
+```cpp
+QFile file(":/ui/icon.png");
+QFile file("/usr/share/app/ui/icon.png");
+```
