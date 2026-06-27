@@ -49,7 +49,7 @@ shortcuts:
 ![](vx_images/251895801375510.png =800x)
 ![](vx_images/414383829082920.png =300x)
 
-### part 05 **QWidget**
+### part 05 QWidget
  
 ![](vx_images/218283962285147.png =800x)
 
@@ -58,7 +58,9 @@ shortcuts:
 Layout 布局管理器，不参控件生命周期管理；
 `widget->setLayout(layout); ` 布局管理器中的所有控件会被加入 widget 的子对象树中。
 
-### part 06 **signals and slots**
+### part 06 signals and slots
+
+[wiki.qt.io::New_Signal_Slot_Syntax](https://wiki.qt.io/New_Signal_Slot_Syntax)
 
 ![](vx_images/484975070088047.png =500x)
 
@@ -74,7 +76,7 @@ Layout 布局管理器，不参控件生命周期管理；
 
 
 
-### part 07 **SIGNAL() / SLOT()  宏 (Qt4)**
+### part 07 SIGNAL() / SLOT()  宏 (Qt4)
 
 ![](vx_images/181969480691024.png =800x)
 
@@ -82,7 +84,7 @@ Layout 布局管理器，不参控件生命周期管理；
 - 其底层是基于字符串形式的函数签名，由 moc 在编译前生成，其功能绑定发生在运行时（根据函数签名字符串遍历）；
 - 没有类型检查
 
-### part 08 **信号连接 Lambda 表达式 / 函数包装器 /  独立函数指针 `【无接收者】`**
+### part 08 信号连接 Lambda 表达式 / 函数包装器 /  独立函数指针 `【无接收者】`
 
 ![](vx_images/223031665717160.png =800x)
 
@@ -111,7 +113,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 对于无接收者的情况（使用lambda 、函数包装器、独立函数指针）
 
 
-### part 09 **自定义信号、槽函数**
+### part 09 自定义信号、槽函数
 
 - 自定义槽函数
     ![](vx_images/590316934114091.png =500x)
@@ -143,7 +145,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 [GammaRay wiki](https://github.com/KDAB/GammaRay/wiki) 运行时手动修改 Qt 属性
 
-### part 12 **Event System**
+### part 12 Event System
 
 [The Event System](https://doc.qt.io/qt-6/eventsandfilters.html)
 
@@ -153,9 +155,10 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 ![](vx_images/373893360188021.png =500x)
 
 
-### part 13 & part 14 **Qt Designer**
+### part 13 & part 14 Qt Designer
 
 [Qt Widgets Designer Manual](https://doc.qt.io/qt-6/qtdesigner-manual.html)
+[Using a Designer UI File in Your C++ Application](https://doc.qt.io/qt-6/designer-using-a-ui-file.html)
 1. 创建带UI文件的项目
 ![](vx_images/101866860351674.png =500x)
 
@@ -182,7 +185,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
     ![](vx_images/246445123945835.png =800x)
     - spacer 、子控件的sizepolicy 配合使用，实现自定义布局
     
-### part 16 **signals slots in Designer**
+### part 16 signals slots in Designer
 
 - 图形界面，拖动连接信号槽
 ![](vx_images/468673395628547.png)
@@ -201,7 +204,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
     ![](vx_images/210275287479370.png =800x)
     > 问题在于，如果 .ui 文件中的控件对象名属性被修改，之前自动生的的槽函数的函数名不会被自动修改，导致编译错误（无法根据对象名属性找到正确的槽函数）
     
-### part 17 **buddies and Tab order**
+### part 17 buddies and Tab order
 
 [Widgets 焦点系统](https://doc.qt.io/qt-6/focus.html)
 
@@ -233,7 +236,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
     ![](vx_images/423640421752885.png =300x)
 
 
-### part 18 **custom widegt**
+### part 18 custom widegt
   
 
 - [自定义 Designer 插件](https://www.youtube.com/watch?v=LGzNWFHUvpM&list=PL6CJYn40gN6iNg0nIYH4QLhYkfs5PslbA) (KDAB's palylist from youtube)
@@ -258,7 +261,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
     
 `静态用户界面，尽量使用 UI 文件`
 
-### part 20 **common widgets**
+### part 20 common widgets
 
 ![](vx_images/450225969858968.png =200x)
 
@@ -279,7 +282,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 
 
-### part 21 **buttons **
+### part 21 buttons
 
 ![](vx_images/336243277519596.png =200x)
 
@@ -307,7 +310,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 [qprogressbar.html](https://doc.qt.io/qt-6/qprogressbar.html)
 [qspinbox.html](https://doc.qt.io/qt-6/qspinbox.html)
 
-### part 22 **widgets organizer**
+### part 22 widgets organizer
 ![](vx_images/496715323002211.png =400x)
 
 ![](vx_images/346216059913449.png =700x)
@@ -318,12 +321,12 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 [qtoolbox.html](https://doc.qt.io/qt-6/qtoolbox.html)
 [qscrollarea.html](https://doc.qt.io/qt-6/qscrollarea.html) 
 
-### part 23 **item widgets**
+### part 23 item widgets
 
 ![](vx_images/366945602725880.png =300x)
 ![](vx_images/83732928665457.png =800x)
 
-### part 24  **[layout management](https://doc.qt.io/qt-6/layout.html)**
+### part 24  [layout management](https://doc.qt.io/qt-6/layout.html)
 
 - 放置和尺寸
 ![](vx_images/175890750559853.png =700x)
@@ -346,7 +349,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 
 
-### part 25 **strecthing and spacing** 拉伸和填充
+### part 25 strecthing and spacing 拉伸和填充
 
 ![](vx_images/42035889378911.png =400x)
 
@@ -381,7 +384,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 >布局运行时，会根据上述多个属性结合使用，决定最终布局效果。
 
-### part 26 **Guidelines for Custom Widgets**
+### part 26 Guidelines for Custom Widgets
 
 ![](vx_images/588624622463244.png =800x)
 
@@ -431,7 +434,7 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 
 将图片、QML、翻译文件等任意二进制数据嵌入到可执行文件或动态库中，并通过虚拟路径 :/或 qrc:统一访问。
 
-
+[QtResources](https://wiki.qt.io/QtResources)
 
 [Qt Resource Collection File (.qrc)](https://doc.qt.io/qt-6/resources.html#qt-resource-collection-file-qrc)
 ```xml
@@ -461,3 +464,588 @@ lambda 是一个匿名函数，不需要信号的接收者。但需要保证 lam
 QFile file(":/ui/icon.png");
 QFile file("/usr/share/app/ui/icon.png");
 ```
+
+### part 29 Dialogs
+[Window and Dialog Widgets](https://doc.qt.io/qt-6/application-windows.html#window-geometry)
+
+
+QDialog 默认是顶层控件
+- 设置 partent 父对象，顶层显示于父对象的中央位置（不一定是应用的顶层），同时共享父窗口所在的任务栏条目
+- 没有设置 parent 父对象，作为顶级窗口独立显示，显示在屏幕的默认位置（通常由窗口管理器决定），拥有独立的任务栏条目
+
+[**模态窗口**](https://doc.qt.io/qt-6/qdialog.html#modal-dialogs) Qt 保证其应用级的顶层显示
+
+[enum Qt::WindowModality](https://doc.qt.io/qt-6/qt.html#WindowModality-enum)
+
+1. 使用 open() , 打开 [window model dialog](https://doc.qt.io/qt-6/qt.html#WindowModality-enum)
+2. 使用 `setModel(true)` 或者 `setWindowModality()` 配合 `show()`
+> 以上两种方法，在模态窗口打开后，控制权立刻交还调用者，仅作为显示和用户输入上的独占，不影响其他窗口的显示和更新
+> Warning: When using open() or show(), the modal dialog should not be created on the stack, so that it does not get destroyed as soon as the control returns to the caller.
+3. 使用 `exec()` , 将窗口设置为模态显示后，开启一个局部事件循环，此种方法会产生嵌套事件循环，临时阻断所有上级事件循环的执行。但是可以获得一个[返回值](https://doc.qt.io/qt-6/qdialog.html#return-value-modal-dialogs)。
+```cpp
+int QDialog::exec()
+{
+    Q_D(QDialog);
+...
+    setAttribute(Qt::WA_ShowModal, true);
+...
+    show();
+...
+    QEventLoop eventLoop;
+    (void) eventLoop.exec(QEventLoop::DialogExec);
+...
+}
+```
+<mark>嵌套的事件循环会导致主事件循环的阻塞，导致其他窗口的绘制、刷新、事件响应不会被执行</mark>
+
+- 模态窗口使用
+![](vx_images/102467741518539.png =800x)
+
+此处 `delete dialog` 并不会导致运行时错误，是正确的
+
+<mark>一个  QObject 对象析构时，会自动将其从父对象的对象树中删除</mark>
+
+
+1. delete dialog
+2. ~QDialog()被调用
+3. Qt 内部：
+    - 从 this（parent）的对象树中把自己移除
+    - 销毁所有子 QObject
+    - parent 不会再 delete 它
+```cpp
+QObject::~QObject()
+{
+    if (d->parent)
+        d->parent->removeChild(this); // 只移除，不 delete
+}
+```
+- 错误写法
+```cpp
+delete dlg;
+delete dlg;   // 💥 double free
+```
+```cpp
+delete dlg;
+dlg = nullptr; // 保险写法
+```
+
+```cpp
+// 设置 WA_DeleteOnClose后再 delete
+QDialog *dlg = new QDialog(this);
+dlg->setAttribute(Qt::WA_DeleteOnClose);
+dlg->show();
+
+// 用户关闭窗口
+// → Qt 自动 delete dlg
+
+// 稍后你又：
+delete dlg;   // 💥 double free
+```
+
+```cpp
+MainWindow::~MainWindow()
+{
+    delete dlg; // 💥 如果 dlg 已经是 child，Qt 会自动由对象树 delete 一次( QObject::~Object() ) ，此处 double free
+}
+```
+
+- 正确写法
+
+```cpp
+ // 方案 A（推荐）
+dlg->setAttribute(Qt::WA_DeleteOnClose);
+dlg->show();
+// ❌ 不再手动 delete
+```
+```cpp
+// 方案 B
+dlg->show();
+// 自己控制生命周期
+delete dlg;
+```
+
+
+
+[**非模态窗口**](https://doc.qt.io/qt-6/qdialog.html#modeless-dialogs)
+
+![](vx_images/195091404754434.png =800x)
+
+
+
+
+
+**自定义对话窗口**
+
+
+
+![](vx_images/370565460496107.png =800x)
+
+
+
+
+
+
+### part 30 Common Dialogs
+
+- [QFlieDialog](https://doc.qt.io/qt-6/qfiledialog.html#details)
+![](vx_images/439915482651948.png =800x)
+
+
+- [QMessageBox](https://doc.qt.io/qt-6/qmessagebox.html#details)
+![](vx_images/379955404062703.png =800x)
+
+
+- [QProgressDialog](https://doc.qt.io/qt-6/qprogressdialog.html#details)
+![](vx_images/377824123899077.png =300x)
+![](vx_images/561705717885812.png =800x)
+
+
+
+
+
+
+- 其他
+![](vx_images/551636656436108.png =500x)
+![](vx_images/155565103265669.png =500x)
+
+
+
+- [QWizard](https://doc.qt.io/qt-6/qwizard.html)
+
+
+
+
+
+
+
+
+### part 31 Main Windwo
+[Window and Dialog Widgets](https://doc.qt.io/qt-6/application-windows.html#primary-and-secondary-windows)
+
+- [QMainWindow](https://doc.qt.io/qt-6/qmainwindow.html#details)
+
+Qt 自带布局管理，Qt designer 中设置的子控件和 layout 是操控其内部的 central widget
+![](vx_images/576481876266197.png)
+
+![](vx_images/42173121299995.png =700x)
+![](vx_images/461825364099913.png =500x)
+
+![](vx_images/522514980716926.png =500x)
+
+- [QAction](https://doc.qt.io/qt-6/qaction.html#details) 类似 button，通过点击触发信号； 专用于 菜单栏，工具栏，快捷键；
+
+![](vx_images/390414895926985.png =800x)
+
+![](vx_images/90955798029595.png =800x)
+
+- [QMenuBar](https://doc.qt.io/qt-6/qmenubar.html#details)
+![](vx_images/428967196367203.png =400x)
+- [QMenu](https://doc.qt.io/qt-6/qmenu.html#details)
+![](vx_images/159126652550104.png =300x)
+
+![](vx_images/442763574121826.png =800x)
+
+- [QToolBar](https://doc.qt.io/qt-6/qtoolbar.html#details)
+![](vx_images/581125317158141.png =500x)
+
+![](vx_images/210474621374169.png =800x)
+
+- [QToolButton](https://doc.qt.io/qt-6/qtoolbutton.html#details)
+相比 QPushButton ，有专用于工具栏的特性，例如边缘更窄；
+
+![](vx_images/187767986484099.png =800x)
+
+- [QStatusBar](https://doc.qt.io/qt-6/qstatusbar.html#details)
+![](vx_images/474694841714657.png =400x)
+![](vx_images/337155995068270.png =800x)
+
+### part 32 String
+
+[QString](https://doc.qt.io/qt-6/qstring.html#details) ： 存储 16 bit 的 QChar (Unicode) 
+
+
+
+[QByteArray](https://doc.qt.io/qt-6/qbytearray.html) ： 存储 8 bit Byte, 用于存储原生字符串，或二进制数据。
+
+> 以上二类都是使用[隐式共享](https://doc.qt.io/qt-6/implicit-sharing.html)，节省内存占用，及数据搬运开销
+
+![](vx_images/52755860708781.png =800x)
+
+![](vx_images/464771344556229.png =800x)
+
+- 文本处理
+![](vx_images/37142600890875.png =800x)
+
+- 格式化
+![](vx_images/578604216952318.png =800x)
+![](vx_images/500645597381175.png =700x)
+
+
+
+- [QStringList](https://doc.qt.io/qt-6/qstringlist.html#details)
+
+![](vx_images/539364666292657.png =800x)
+
+
+
+
+
+
+
+
+
+### part 34 Container
+
+[Container Classes](https://doc.qt.io/qt-6/containers.html#introduction)
+
+[Qt Containers in Qt 5 and Qt 6 on Youtube](https://www.youtube.com/watch?v=d3EX9bVFW-E&list=PL6CJYn40gN6jrZFWcB1HK5cJ_nvViBuRu)
+
+
+
+### part 35 正则表达式 reglar expression
+
+[QRegularExpression](https://doc.qt.io/qt-6/qregularexpression.html#details)
+
+![](vx_images/180714222488192.png =800x)
+
+![](vx_images/127633663716850.png =800x)
+
+![](vx_images/560435997683555.png =800x)
+
+
+### part 35 文件处理
+
+[Data Input Output](https://doc.qt.io/qt-6/topics-data-io.html)
+
+[QIODevice](https://doc.qt.io/qt-6/qiodevice.html#details) 读写设备，用于处理 read / write 的通用接口类。
+
+![](vx_images/393625552160413.png =800x)
+
+![](vx_images/469377115756810.png =800x)
+
+![](vx_images/289552308188442.png =800x)
+
+- [QFile](https://doc.qt.io/qt-6/qfile.html#details) 文件读写设备接口
+- [QTextStream](https://doc.qt.io/qt-6/qtextstream.html#details) 文本文件流式读写接口
+- [QDateStream](https://doc.qt.io/qt-6/qdatastream.html#details) 二进制文件流式读写接口
+
+[**CBOR Support in Qt**](https://doc.qt.io/qt-6/cbor.html)
+QCborStreamReader 
+
+QCborStreamWriter
+
+[**Qt XML**](https://doc.qt.io/qt-6/qtxml-index.html)
+
+- [QXMLStreamReader](http://doc.qt.io/qt-6/qxmlstreamreader.html)
+
+- [QXMLStreamWriter](https://doc.qt.io/qt-6/qxmlstreamwriter.html)
+
+
+
+[**JSON 支持**](https://doc.qt.io/qt-6/json.html)
+
+- [QJsonDocument](https://doc.qt.io/qt-6/qjsondocument.html)
+
+![](vx_images/93752164420392.png =800x)
+
+**File Paths**
+
+![](vx_images/285282775200499.png =800x)
+
+**文件操作和文件信息**
+
+![](vx_images/331583968514826.png =800x)
+
+
+
+[QFileInfo](https://doc.qt.io/qt-6/qfileinfo.html#details)
+
+[QDir](https://doc.qt.io/qt-6/qdir.html#details)
+
+
+**文件类型**
+
+![](vx_images/205672336368578.png =800x)
+
+- [QMimeDatabase](https://doc.qt.io/qt-6/qmimedatabase.html#details)
+- [QMimeType](https://doc.qt.io/qt-6/qmimetype.html#details)
+
+
+**专用文件类**
+
+![](vx_images/244325157054259.png =800x)
+
+- [QTemporaryFile](https://doc.qt.io/qt-6/qtemporaryfile.html#details)
+
+- [QSaveFIle](https://doc.qt.io/qt-6/qsavefile.html#details)
+
+
+**文件列表信息**
+
+![](vx_images/311685242547916.png =800x)
+
+- [QDir](https://doc.qt.io/qt-6/qdir.html#details)  
+- [QDirIterator](https://doc.qt.io/qt-6/qdiriterator.html#details)
+
+
+### part 36 [QVariant](https://doc.qt.io/qt-6/qvariant.html#details)
+
+![](vx_images/383196099101352.png =800x)
+
+
+![](vx_images/3235306161833.png =800x)
+
+
+![](vx_images/423806958577724.png =800x)
+![](vx_images/327675993626916.png =800x)
+
+
+
+[**Creating Custom Qt Types**](https://doc.qt.io/qt-6/custom-types.html)
+
+![](vx_images/283414137959364.png =800x)
+
+![](vx_images/51045418734069.png =800x)
+
+
+
+- 用于跨线程信号槽参数传递时（事件循环-事件派发）需要序列化和反序列化
+
+![](vx_images/147405135890965.png =800x)
+
+![](vx_images/570936866920231.png =800x)
+
+
+[qRegisterMetaType()](https://doc.qt.io/qt-6/qmetatype.html#qRegisterMetaType)
+
+**Qt框架内的常见用途**
+
+
+
+![](vx_images/498347183772960.png =800x)
+
+
+
+### part 37 Property 属性系统
+
+[The Property System](https://doc.qt.io/qt-6/properties.html)
+
+- Designer 中为控件对象添加属性
+![](vx_images/511795180711497.png =400x)
+
+- 在 QObject 类中注册自定义属性
+![](vx_images/238654693433703.png =800x)
+
+
+[Q_GADGET](https://doc.qt.io/qt-6/qobject.html#Q_GADGET) 用于非 QObject 类
+
+- QObject with Properties example 
+![](vx_images/239875775360922.png =800x)
+
+- properties access
+`property() `返回值是 QVariant 类型
+![](vx_images/197004426568985.png =800x)
+
+- iterating through properties
+遍历属性
+![](vx_images/483674434420371.png =800x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
