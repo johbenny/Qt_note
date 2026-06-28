@@ -852,73 +852,135 @@ QCborStreamWriter
 
 
 
+### part 38 painting basic
 
+[Paint System](https://doc.qt.io/qt-6/paintsystem.html)
 
+[QPainter](https://doc.qt.io/qt-6/qpainter.html#details)
 
+![](vx_images/375226401609374.png =800x)
 
+- painting on widgets
+![](vx_images/599833972313911.png =800x)
 
+- 双缓冲：一次性绘制，一次性刷新，避免闪烁
+- widget 默认背景是透明的
 
+[What is the difference between update and repaint? on Youtube](https://www.youtube.com/watch?v=jCNxm1drQ8w)
 
+- 坐标系统
+![](vx_images/330036043062932.png =800x)
 
+- 常用几何类
 
+![](vx_images/534548707205148.png =800x)
 
 
+### part 39 color
 
 
+![](vx_images/110333175311622.png =800x)
 
 
+[ex-transparency](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/painting/ex-transparency)
 
+- [QPen](https://doc.qt.io/qt-6/qpen.html#details) 定义 QPainter 如何绘画线条
+![](vx_images/6903499264013.png =800x)
 
 
 
+- [QBrush](https://doc.qt.io/qt-6/qbrush.html#details) 控制 QPainter 如何填充图形
 
+![](vx_images/590614399242765.png =800x) 
 
 
+- [QLinearGradient](https://doc.qt.io/qt-6/qlineargradient.html#details) 线性渐变颜色填充
 
+![](vx_images/252518531401504.png =350x)
 
+![](vx_images/582256090691657.png =800x)
 
+[ex-gradients](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/painting/ex-gradients)
 
+- [Brush on QPen](https://doc.qt.io/qt-6/qpen.html#setBrush)
 
+![](vx_images/506874956598919.png =800x)
 
+[ex-penwithbrush](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/painting/ex-penwithbrush)
 
 
+### part 40 调色板 ：widget 不同状态下的预设颜色主题 
 
+[QPalette](https://doc.qt.io/qt-6/qpalette.html#details)
 
+![](vx_images/525585259181650.png =800x)
 
 
 
+![](vx_images/240856508931657.png =800x)
 
+ 控制窗口不同组件的颜色主题
+![](vx_images/357107221435335.png =800x)
 
 
 
 
+### part 41 绘制动作
 
+[ex-figures](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/painting/ex-figures) 基本线条，填充 示例
 
+- 绘制文字
+![](vx_images/171821944876251.png =800x)
 
 
+- [QPainterPath](https://doc.qt.io/qt-6/qpainterpath.html#details)  绘制路径
+存储绘制路径，最后交由 QPainter 一次性绘制
 
+![](vx_images/465402991646507.png =200x)
+![](vx_images/32741647367814.png =800x)
 
 
 
+[Painter Paths Example](https://doc.qt.io/qt-6/qtwidgets-painting-painterpaths-example.html)
 
 
 
 
+### part 42 绘制过程中的锯齿和抗锯齿
 
+[Coordinate System::Rendering](https://doc.qt.io/qt-6/coordsys.html#rendering)
 
+[ex-rectoutline](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/painting/ex-rectoutline)
 
+### part 43 坐标转换
 
+本质是使用矩阵进行坐标转换，具体绘画流程实现起来像是在原地，但实际绘图内容已经被映射到其他地方。
 
 
+[Transformations](https://doc.qt.io/qt-6/coordsys.html#transformations)
 
 
+![](vx_images/17787249848298.png =600x)
+- QPainter 可以直接设置转换方式，以栈操作形式回撤状态
+- [QTransform](https://doc.qt.io/qt-6/qtransform.html#details) 专用于存储坐标转换的类，可被组合到 QPainter 中。
+[Transformations Example](https://doc.qt.io/qt-6/qtwidgets-painting-transformations-example.html)
 
 
+- rotate ： 可以理解为 paint device 在进行逆旋转
 
 
+> 矩阵变换的特性，translate、rotate、scale 等操作，都是连续生效的（向量计算）
 
+[barchart.cpp#L73](https://github.com/KDABLabs/kdabtv/blob/master/Programming-With-Qt-Widgets/painting/sol-barchart/barchart.cpp#L73)
 
+### part 44 real example
 
+
+![](vx_images/278071253712780.png =800x)
+
+[barchart.cpp#L73](https://github.com/KDABLabs/kdabtv/blob/master/Programming-With-Qt-Widgets/painting/sol-barchart/barchart.cpp#L73) tralslate 的叠加操作
+
+[barchart.cpp#L71](https://github.com/KDABLabs/kdabtv/blob/master/Programming-With-Qt-Widgets/painting/sol-barchart/barchart.cpp#L71) 将绘制的 QRect 映射到坐标变化后实际画出的 QRect 
 
 
 
