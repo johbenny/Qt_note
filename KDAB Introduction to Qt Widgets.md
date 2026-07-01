@@ -2,8 +2,8 @@
 [YouTube video Link](https://www.youtube.com/playlist?list=PL6CJYn40gN6iFcTyItvnE5nOmJR8qk_7o)
 
 
-## Moudle 1 
-![](vx_images/527827381053015.png =500x)
+
+
 
 ### part 01
 
@@ -982,18 +982,32 @@ QCborStreamWriter
 
 [barchart.cpp#L71](https://github.com/KDABLabs/kdabtv/blob/master/Programming-With-Qt-Widgets/painting/sol-barchart/barchart.cpp#L71) 将绘制的 QRect 映射到坐标变化后实际画出的 QRect 
 
+### part 45  printing 打印
+[Qt Print Support](https://doc.qt.io/qt-6/qtprintsupport-index.html)
+使用 [QPrinter](https://doc.qt.io/qt-6/qprinter.html#details) 和 QPainter ，绘制空白页面
 
+![](vx_images/446526430243661.png =800x)
 
+- 使用 QPainter 在页面上绘图
+![](vx_images/26616687755190.png =800x)
 
+- 调用系统打印机配置窗口
 
+![](vx_images/437194053489307.png =400x)
+![](vx_images/587153733583920.png =800x)
 
 
 
 
 
+- 绘制 GUI 组件
+![](vx_images/82643807498212.png =800x)
+[Printing Widgets](https://doc.qt.io/qt-6/qtprintsupport-index.html#printing-widgets)
 
 
+- 系统打印机信息
 
+![](vx_images/38387278425692.png =800x)
 
 
 
@@ -1001,113 +1015,238 @@ QCborStreamWriter
 
 
 
+- 打印页面预览
+![](vx_images/309265775692983.png =800x)
 
+- [KDReports](https://github.com/KDAB/KDReports)
+ 打印 Qt 内部组件的工具
 
+### part 45 [QFontMetrics](https://doc.qt.io/qt-6/qfontmetrics.html#details)::bounding rect
 
+用于计算特定 font 的文本所需要的几何空间
 
+### part 46 国际化工具
+[Internationalization with Qt](https://doc.qt.io/qt-6/internationalization.html)
+![](vx_images/81280996237890.png =800x)
 
+![](vx_images/153722221962654.png =500x)
+![](vx_images/195093219426421.png =800x)
 
 
 
 
+### part 47 CMake 设置 国际化
 
 
+![](vx_images/483518226514278.png =600x)
 
 
+- [使用 CMake 自动化配置](https://doc.qt.io/qt-6/localization.html#specify-translation-sources-in-qt-project-files)
 
+    -   [Using lupdate with CMake](https://doc.qt.io/qt-6/linguist-lupdate.html#using-lupdate-with-cmake)
+    -   [Using lrelease with CMake](https://doc.qt.io/qt-6/linguist-lrelease.html#using-lrelease-with-cmake)
+    
 
+[Troll Print Example](https://doc.qt.io/qt-6/qtlinguist-trollprint-example.html)
 
+```cmake
+#--------------  配置i18n -------------------begin
+find_package(Qt6 REQUIRED COMPONENTS LinguistTools) #包含 linguist 工具
+qt_standard_project_setup(I18N_TRANSLATED_LANGUAGES pt) # 设置翻译目标，.ts 文件会自动生成(源文件夹下，空文件)
+#--------------  配置i18n -------------------end
 
 
+qt_add_executable(trollprint
+    main.cpp
+    mainwindow.cpp mainwindow.h
+    printpanel.cpp printpanel.h
+)
 
+#--------------  配置i18n -------------------begin
+# 为 target 配置 .qm 文件的索引，保存在 qm_files 中。
+qt6_add_translations(trollprint
+    QM_FILES_OUTPUT_VARIABLE qm_files)
+#--------------  配置i18n -------------------end
 
+target_link_libraries(trollprint PUBLIC
+    Qt::Core
+    Qt::Gui
+    Qt::Widgets
+)
 
+```
 
+[官方cmake示例](https://doc.qt.io/qt-6/qtlinguist-cmake-qt-add-translations.html#examples) `qt_add_translations 具有复合功能，详见链接内`
 
+- cmake configure 执行完后，会自动生成 .ts 文件（空文件），并四个构建目标 ， 具体功能见上述官方文档
+    - target_lrelease
+    - target_lupdate
+    - update_translations
+    - release_translations 
+     
+```
+build
+ ├─ target_lupdate      自动
+ │   └─ 更新 .ts
+ ├─ target_lrelease     自动
+ │   └─ 生成 .qm
+ └─ 编译程序
+ ```
 
 
+```
+update_translations    手动
+ └─ 更新 .ts
 
+release_translations   手动
+ └─ 生成 .qm
+ ```
+ 
+- [加载 .qm 文件](https://doc.qt.io/qt-6/i18n-source-translation.html#c-use-qtranslator)
+- [动态切换语言](https://doc.qt.io/qt-6/i18n-source-translation.html#prepare-for-dynamic-language-changes)
 
 
 
 
 
+### part 52 Model / View - item views
 
+- [QListWidget](https://doc.qt.io/qt-6/qlistwidget.html#details)
+![](vx_images/106004538557157.png =800x)
 
+- [QTableWidget](https://doc.qt.io/qt-6/qtablewidget.html#details)
+![](vx_images/363935948456582.png =800x)
+![](vx_images/212084759185435.png =800x)
+![](vx_images/353666170071107.png =200x)
 
+[ex-QTableWidget](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/modelview/ex-QTableWidget)
 
 
 
+- [QTreeWidget](https://doc.qt.io/qt-6/qtreewidget.html#details)
+![](vx_images/83975085972184.png =800x)
+![](vx_images/129295216038557.png =400x)
+![](vx_images/126908756605030.png =800x)
+![](vx_images/277548728513024.png =800x)
+[ex-QTreeWidget](https://github.com/KDABLabs/kdabtv/tree/master/Programming-With-Qt-Widgets/modelview/ex-QTreeWidget)
 
+> 本质上仍然是一维表和二维表
 
+- 表头
+![](vx_images/152606701925324.png =800x)
 
 
+### part 53 item widegt - interaction
 
+ 
+- 鼠标和键盘 focus
+![](vx_images/419485925746463.png =800x)
+![](vx_images/578597075964815.png =400x)
+![](vx_images/8157676724551.png =800x)
 
+- 排序
+![](vx_images/337634014051128.png =800x)
+![](vx_images/466211004837924.png =400x)
 
 
+- 事件处理
+![](vx_images/421662609403928.png =800x)
 
 
 
 
 
 
+### part 54  Model / View concept
 
 
+![](vx_images/469724439289794.png =600x);
+![](vx_images/60030656230768.png =600x)
+![](vx_images/451415413218387.png =600x)
+![](vx_images/135814196918722.png =600x)
 
 
 
 
 
 
+### part 55 获取数据
 
 
 
+- 数据的索引 [QMoideIndex](https://doc.qt.io/qt-6/qmodelindex.html#details)
+![](vx_images/416088205839620.png =800x)
 
+- Table / Tree 中的 QModelIndex
+![](vx_images/407387717684333.png =800x)
+![](vx_images/554209427594702.png =300x)
 
+- Item Role
+   一个数据可以同时拥有多个 role , 每次只用一个 role 通过 data() 获取数据，例如每一个表项的显示需要调用多次 data() [Extending the Read Only Example with Roles](https://doc.qt.io/qt-6/modelview.html#2-2-extending-the-read-only-example-with-roles)
+   
+   [item-roles](https://doc.qt.io/qt-6/model-view-programming.html#item-roles) 角色的使用
+   [enum Qt::ItemDataRole](https://doc.qt.io/qt-6/qt.html#ItemDataRole-enum) 所有角色枚举
 
+一个 item 的所有 Role 都会被轮询，直接 return QVariant() ; 代表不开启该选项 ；
 
 
+![](vx_images/474035974831695.png =800x)  
+![modelview-roles](vx_images/90597903995257.png =300x)
 
 
 
 
+### part 56 List / Table
 
+- Read only List Model
+![](vx_images/414963979694231.png =800x)
 
+- 可修改的 list  model 
+![](vx_images/272671263353844.png =800x)
+用户手动，非 view 发起时，需要手动 `emit datachanged(startIndex,endIndex)`
 
+- model 结构变化
+![](vx_images/323944259094668.png =800x)
 
+- model 发出的，通知 view 的信号
+![](vx_images/283311799977684.png =800x)
 
 
+- table model
+![](vx_images/342681446090307.png =800x)
 
 
 
+### part 58 check index
 
 
+[qabstractitemmodel.html#checkIndex](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex) 使用 Qt 框架内的方法，检查 index 的有效性
 
 
 
+### part 59 custom Tree Model
+- Qt 框架内自带的 tree model
+    -    [QStandardItemModel​](https://doc.qt.io/qt-6/qstandarditemmodel.html#details) ： 数据必须提前绑定到 item 中，不适用 data() 中动态获取底层数据 （底层数据和 model 强耦合）
+    -    [QFileSystemModel​](https://doc.qt.io/qt-6/qfilesystemmodel.html#details) ： 专用于系统文件结构 （非通用 tree model）
 
+- 自定义 tree model
 
+![](vx_images/398808172457929.png =800x)
 
+![](vx_images/99192004648487.png =800x)
 
+![](vx_images/288633527047200.png =800x)
 
 
 
 
+[qtwidgets-itemviews-simpletreemodel-example.html](https://doc.qt.io/qt-6/qtwidgets-itemviews-simpletreemodel-example.html)
 
 
+- 对于隐形根节点，自动生成一个无效 QModelIndex (-1, -1)， 其他 item 的 QModeIIndex 通过 index() 获得 （初始化时，使用其进行 行 / 列 数的查询）
+    - index() 由 view 根据 row 和 column 自动调用
 
+[Example](./vx_assets/simpletreemodel)
 
-
-
-
-
-
-
-
-
-
-
-
-
+### part 61
 

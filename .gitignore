@@ -8,3 +8,6 @@ Thumbs.db
 # From SyncConfig::exclude_paths
 *.vswp
 vx_notebook/vx_sync/
+/build/
+/build*/
+/*build/
